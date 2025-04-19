@@ -1,0 +1,15 @@
+streamlit
+google-generativeai
+chromadb>=0.4.22
+PyMuPDF # <<< Make sure this line exists for 'import fitz'
+# pypdfium2 # Can be removed if you only rely on PyMuPDF
+python-docx
+Pillow
+openpyxl
+pandas
+python-pptx
+requests
+beautifulsoup4
+lxml
+# Any other dependencies like rdflib, nipype etc. if needed directly or by libraries above
+rdflib # This package likely brought in csv2rdf.exe
