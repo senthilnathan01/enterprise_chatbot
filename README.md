@@ -1,4 +1,4 @@
-Project Tree
+**Project Tree**
 
 multimodal_qa_app/
 
@@ -27,6 +27,10 @@ multimodal_qa_app/
 
 Set up secrets: Create .streamlit/secrets.toml with your GOOGLE_API_KEY or set it as an environment variable.
 
-Install dependencies: pip install -r requirements.txt
+**Install dependencies: **
 
-Run the main app: streamlit run main_app.py
+/ pip install -r requirements.txt
+
+**Run the main app: **
+
+/ streamlit run main_app.py
