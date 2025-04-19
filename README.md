@@ -1,16 +1,27 @@
 Project Tree
 
 multimodal_qa_app/
+
 ├── main_app.py         # Main Streamlit application, UI, orchestration
+
 ├── config.py           # Configuration (model names, constants)
+
 ├── utils.py            # General utility functions
+
 ├── file_parsers.py     # Functions for parsing different file types
+
 ├── image_processor.py  # Image handling, OCR/VLM calls
+
 ├── web_crawler.py      # URL finding and crawling functions
+
 ├── vector_store.py     # ChromaDB interactions, embedding, context retrieval
+
 ├── qa_engine.py        # Q&A logic, data query handling, suggestions
+
 ├── requirements.txt    # Dependencies
+
 └── .streamlit/
+
     └── secrets.toml    # (Optional) For storing API keys locally
 
 
