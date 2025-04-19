@@ -29,10 +29,8 @@ Set up secrets: Create .streamlit/secrets.toml with your GOOGLE_API_KEY or set i
 
 **Install dependencies:**
 
-/
-pip install -r requirements.txt
+'pip install -r requirements.txt'
 
 **Run the main app:**
 
-/
-streamlit run main_app.py
+'streamlit run main_app.py'
