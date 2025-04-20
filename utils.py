@@ -6,6 +6,7 @@ import time
 import random
 import string
 import re
+import uuid # Import the uuid module
 
 def log_message(message, level="info"):
     """Adds message to the session's processing log."""
@@ -14,21 +15,19 @@ def log_message(message, level="info"):
     timestamp = time.strftime("%H:%M:%S")
     log_entry = f"[{timestamp}][{level.upper()}] {message}"
     st.session_state.processing_log.append(log_entry)
-    # Optionally display errors/warnings immediately in the UI if needed
-    # if level == "error": st.error(message)
-    # elif level == "warning": st.warning(message)
 
-def generate_unique_id(prefix="doc"):
-    """Generates a unique ID using timestamp and random numbers."""
-    return f"{prefix}_{int(time.time())}_{random.randint(1000, 9999)}"
+def generate_unique_id(): # Removed prefix argument as UUID is unique
+    """Generates a unique ID using UUID4."""
+    # Returns a unique string like 'f47ac10b-58cc-4372-a567-0e02b2c3d479'
+    return str(uuid.uuid4())
 
 def find_urls(text):
     """Finds potential URLs in text using regex."""
     if not isinstance(text, str):
         return []
-    # Simple regex, consider refining for edge cases
     try:
-        return re.findall(r'https?://[^\s<>"]+|www\.[^\s<>"]+', text)
+        url_pattern = re.compile(r'https?://[^\s<>"\']+|(?:www|ftp)\.[^\s<>"\']+')
+        return url_pattern.findall(text)
     except Exception as e:
         log_message(f"Error finding URLs: {e}", "warning")
         return []
@@ -37,12 +36,15 @@ def chunk_text(text, chunk_size, chunk_overlap):
     """Splits text into overlapping chunks."""
     if not isinstance(text, str) or not text: return []
     chunks = []
-    start = 0
-    while start < len(text):
-        end = start + chunk_size
-        chunks.append(text[start:end])
-        start += chunk_size - chunk_overlap
-        # Basic safeguards
-        if start >= len(text): break
-        if start < 0: start = end
+    start_index = 0
+    text_length = len(text)
+    while start_index < text_length:
+        end_index = start_index + chunk_size
+        chunks.append(text[start_index:end_index])
+        start_index += chunk_size - chunk_overlap
+        if start_index >= text_length: break
+        if start_index < 0:
+            log_message("Chunk overlap is too large, adjusting.", "warning")
+            start_index = end_index
     return chunks
+
