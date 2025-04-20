@@ -34,3 +34,7 @@ Set up secrets: Create .streamlit/secrets.toml with your GOOGLE_API_KEY or set i
 **Run the main app:**
 
 `streamlit run main_app.py`
+
+or
+
+'python -m streamlit run main_app.py'
