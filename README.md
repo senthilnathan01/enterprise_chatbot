@@ -1,3 +1,7 @@
+![image](https://github.com/user-attachments/assets/55d49e5d-fa11-49b5-a929-dbbd8cc9a39a)
+
+
+
 **Project Tree**
 
 multimodal_qa_app/
