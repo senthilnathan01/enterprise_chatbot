@@ -26,7 +26,7 @@ multimodal_qa_app/
 
 └── .streamlit/
 
-    └── secrets.toml    # (Optional) For storing API keys locally
+    └── secrets.toml    # For storing API keys locally
 
 
 Set up secrets: Create .streamlit/secrets.toml with your GOOGLE_API_KEY or set it as an environment variable.
